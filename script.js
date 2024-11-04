@@ -2,6 +2,7 @@
 function saveNote() {
     const noteInput = document.getElementById('noteInput').value;
     localStorage.setItem('note', noteInput);
+    displayNote();
 }
 
 
@@ -10,7 +11,15 @@ function deleteNote() {
 }
 
 //fungsi untuk menampilkan data 
-function displayNote(){}
+function displayNote(){
+    const saveNote = localStorage.getItem('note');
+    const noteDisplay = document.getElementById('saveNote');
+    if (saveNote) {
+        noteDisplay.textContent = `Catatan tersimpan : ${saveNote}`;
+    }else{
+        noteDisplay.textContent = 'Tidak Catatan tersimpan';
+    }
+}
 
 //event listener untuk tombol simpan 
 document.getElementById('saveButton').addEventListener('click', saveNote);
