@@ -8,6 +8,8 @@ function saveNote() {
 
 //fungsi untuk menghapus data 
 function deleteNote() {
+    localStorage.removeItem('note');
+    displayNote();
 }
 
 //fungsi untuk menampilkan data 
